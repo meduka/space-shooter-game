@@ -7,7 +7,7 @@ pygame.init()
 
 
 # Window
-WIDTH = 800
+WIDTH = 1000
 HEIGHT = 600
 SIZE = (WIDTH, HEIGHT)
 TITLE = "Space War"
@@ -63,11 +63,18 @@ class Ship(pygame.sprite.Sprite):
         lasers.add(laser)
 
     def update(self, bombs):
-        hit_list = pygame.sprite.spritecollide(self, bombs, True)
+        hit_list = pygame.sprite.spritecollide(self, bombs, True,
+                                               pygame.sprite.collide_mask)
 
         for hit in hit_list:
             # play hit sound
             self.shield -= 1
+
+        hit_list = pygame.sprite.spritecollide(self, mobs, False)
+
+        if len(hit_list) > 0:
+            self.shield = 0
+
 
         if self.shield == 0:
             '''
@@ -93,6 +100,7 @@ class Mob(pygame.sprite.Sprite):
         super().__init__()
 
         self.image = image
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -104,7 +112,8 @@ class Mob(pygame.sprite.Sprite):
         bombs.add(bomb)
     
     def update(self, lasers):
-        hit_list = pygame.sprite.spritecollide(self, lasers, True)
+        hit_list = pygame.sprite.spritecollide(self, lasers, True,
+                                               pygame.sprite.collide_mask)
 
         if len(hit_list) > 0:
             '''
@@ -188,7 +197,7 @@ mobs = pygame.sprite.Group()
 mobs.add(mob1, mob2, mob3)
 
 bombs = pygame.sprite.Group()
-
+                    
 
 fleet = Fleet(mobs)
 
