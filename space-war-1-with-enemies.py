@@ -28,6 +28,7 @@ GREEN = (100, 255, 100)
 
 # Images
 ship_img = pygame.image.load('assets/images/player_ship.png')
+hurtflash_img = pygame.image.load('assets/images/player_ship-1.png')
 laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
 mob_img = pygame.image.load('assets/images/enemy_ship-1.png')
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
@@ -62,14 +63,15 @@ class Ship(pygame.sprite.Sprite):
         laser.rect.centery = self.rect.top
         lasers.add(laser)
 
-    def update(self, bombs):
+    def update(self, bombs, image, hurt):
         hit_list = pygame.sprite.spritecollide(self, bombs, True,
                                                pygame.sprite.collide_mask)
 
         for hit in hit_list:
             # play hit sound
             self.shield -= 1
-
+            self.image = hurt            
+            
         hit_list = pygame.sprite.spritecollide(self, mobs, False)
 
         if len(hit_list) > 0:
@@ -222,7 +224,7 @@ while not done:
         
     
     # Game logic (Check for collisions, update points, etc.)
-    player.update(bombs)
+    player.update(bombs, ship_img, hurtflash_img)
     lasers.update()   
     mobs.update(lasers)
     bombs.update()
