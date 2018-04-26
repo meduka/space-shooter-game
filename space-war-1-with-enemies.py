@@ -96,6 +96,9 @@ class Laser(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y -= self.speed
+
+        if self.rect.bottom < 0:
+            self.kill()
     
 class Mob(pygame.sprite.Sprite):
     def __init__(self, x, y, image):
