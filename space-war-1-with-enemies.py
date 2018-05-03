@@ -239,7 +239,7 @@ def show_stats(player):
     score_text = FONT_SM.render(str(player.score), 1, WHITE)
     screen.blit(score_text, [32, 32])
 
-'''keep thinking on ways to display the health thing'''
+'''keep thinking on ways to display the health thing
 def health_meter():
 
     h_y = 32
@@ -248,7 +248,7 @@ def health_meter():
     for hit in hit_list:
         h_x += 1
     screen.blit(health, [h_x, h_y])
-
+'''
 
 # Game loop
 done = False
@@ -294,7 +294,7 @@ while not done:
     bombs.draw(screen)
     mobs.draw(screen)
     show_stats(player)
-    health_meter()
+    #health_meter()
 
     if stage == START:
         show_title_screen()
