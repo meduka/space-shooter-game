@@ -25,6 +25,7 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
 GREEN = (100, 255, 100)
+DARK_BLUE = (10, 0, 35)
 
 # Images
 ship_img = pygame.image.load('assets/images/player_ship.png')
@@ -32,11 +33,22 @@ hurtflash_img = pygame.image.load('assets/images/player_ship-1.png')
 laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
 mob_img = pygame.image.load('assets/images/enemy_ship-1.png')
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
+health = pygame.image.load('assets/images/health_unit.png') 
+
+# Fonts
+FONT_SM = pygame.font.Font(None, 24)
+FONT_XL = pygame.font.Font("assets/fonts/space_age.ttf", 96)
+
 
 # Sounds
 '''
 EXPLOSION = pygame.mixer.Sound('assets/sounds/explosion.ogg')
 '''
+
+# Stages
+START = 0
+PLAYING = 1
+END = 2
 
 # Game classes
 class Ship(pygame.sprite.Sprite):
@@ -70,12 +82,14 @@ class Ship(pygame.sprite.Sprite):
         for hit in hit_list:
             # play hit sound
             self.shield -= 1
-            self.image = hurt            
+           
             
         hit_list = pygame.sprite.spritecollide(self, mobs, False)
 
         if len(hit_list) > 0:
             self.shield = 0
+            self.image = hurt
+
 
 
         if self.shield == 0:
@@ -124,6 +138,7 @@ class Mob(pygame.sprite.Sprite):
             '''
             EXPLOSION.play()
             '''
+            player.score += 1
             self.kill()
 
 
@@ -139,7 +154,10 @@ class Bomb(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.y += self.speed
-    
+        
+        if self.rect.bottom > 600:
+            self.kill()
+
     
 class Fleet:
 
@@ -190,21 +208,47 @@ ship = Ship(384, 485, ship_img)
 mob1 = Mob(128, 0, mob_img)
 mob2 = Mob(256, 0, mob_img)
 mob3 = Mob(384, 0, mob_img)
+mob4 = Mob(512, 0, mob_img)
+mob5 = Mob(640, 0, mob_img)
 
 
 # Make sprite groups
 player = pygame.sprite.GroupSingle()
 player.add(ship)
+player.score = 0
 
 lasers = pygame.sprite.Group()
 
 mobs = pygame.sprite.Group()
-mobs.add(mob1, mob2, mob3)
+mobs.add(mob1, mob2, mob3, mob4, mob5)
 
 bombs = pygame.sprite.Group()
                     
 
 fleet = Fleet(mobs)
+
+# set stage
+stage = START
+
+# Game helper functions
+def show_title_screen():
+    title_text = FONT_XL.render("Space War!", 1, WHITE)
+    screen.blit(title_text, [128, 204])
+
+def show_stats(player):
+    score_text = FONT_SM.render(str(player.score), 1, WHITE)
+    screen.blit(score_text, [32, 32])
+
+'''keep thinking on ways to display the health thing'''
+def health_meter():
+
+    h_y = 32
+    h_x = 800
+
+    for hit in hit_list:
+        h_x += 1
+    screen.blit(health, [h_x, h_y])
+
 
 # Game loop
 done = False
@@ -215,33 +259,47 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                ship.shoot()
+            if stage == START:
+                if event.key == pygame.K_SPACE:
+                    stage = PLAYING
+            elif stage == PLAYING:
+                if event.key == pygame.K_SPACE:
+                    ship.shoot()
 
-    pressed = pygame.key.get_pressed()
+                
+    if stage == PLAYING:
+        pressed = pygame.key.get_pressed()
 
-    if pressed[pygame.K_LEFT]:
-        ship.move_left()
-    elif pressed[pygame.K_RIGHT]:
-        ship.move_right()
-        
+        if pressed[pygame.K_LEFT]:
+            ship.move_left()
+        elif pressed[pygame.K_RIGHT]:
+            ship.move_right()
+                                
     
     # Game logic (Check for collisions, update points, etc.)
-    player.update(bombs, ship_img, hurtflash_img)
-    lasers.update()   
-    mobs.update(lasers)
-    bombs.update()
-    fleet.update()
+    if stage == PLAYING:
+
+        player.update(bombs, ship_img, hurtflash_img)
+        lasers.update()   
+        mobs.update(lasers)
+        bombs.update()
+        fleet.update()
 
         
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
-    screen.fill(BLACK)
+    
+    screen.fill(DARK_BLUE)
     lasers.draw(screen)
     player.draw(screen)
     bombs.draw(screen)
     mobs.draw(screen)
+    show_stats(player)
+    health_meter()
 
-    
+    if stage == START:
+        show_title_screen()
+
+        
     # Update screen (Actually draw the picture in the window.)
     pygame.display.flip()
 
