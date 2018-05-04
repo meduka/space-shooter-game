@@ -25,7 +25,7 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
 GREEN = (100, 255, 100)
-DARK_BLUE = (10, 0, 35)
+DARK_BLUE = (2, 0, 17)
 
 # Images
 ship_img = pygame.image.load('assets/images/player_ship.png')
@@ -44,6 +44,9 @@ FONT_XL = pygame.font.Font("assets/fonts/space_age.ttf", 96)
 '''
 EXPLOSION = pygame.mixer.Sound('assets/sounds/explosion.ogg')
 '''
+
+hongkong97 = pygame.mixer.Sound('assets/sounds/hong_kong_97.ogg')
+
 
 # Stages
 START = 0
@@ -265,6 +268,8 @@ while not done:
             elif stage == PLAYING:
                 if event.key == pygame.K_SPACE:
                     ship.shoot()
+                if event.key == pygame.K_p:
+                    stage = END
 
                 
     if stage == PLAYING:
