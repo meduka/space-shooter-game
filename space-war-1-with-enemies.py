@@ -101,6 +101,13 @@ class Ship(pygame.sprite.Sprite):
             '''
             self.kill()
             
+        if self.rect.x < -25:
+            self.rect.x = -25
+
+        elif self.rect.x > 950:
+            self.rect.x = 950
+       
+            
 class Laser(pygame.sprite.Sprite):
     
     def __init__(self, image):
