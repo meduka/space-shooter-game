@@ -34,6 +34,7 @@ laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
 mob_img = pygame.image.load('assets/images/enemy_ship-1.png')
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
 health = pygame.image.load('assets/images/health_unit.png') 
+background = pygame.image.load('assets/images/background2.jpg')
 
 # Fonts
 FONT_SM = pygame.font.Font(None, 24)
@@ -46,7 +47,8 @@ EXPLOSION = pygame.mixer.Sound('assets/sounds/explosion.ogg')
 '''
 
 hongkong97 = pygame.mixer.Sound('assets/sounds/hong_kong_97.ogg')
-
+stickers = pygame.mixer.Sound('assets/sounds/stickers.ogg')
+music =  pygame.mixer.Sound('assets/sounds/Bangarang_Acapella.ogg')
 
 # Stages
 START = 0
@@ -96,10 +98,15 @@ class Ship(pygame.sprite.Sprite):
 
 
         if self.shield == 0:
+            stickers.play()
+
             '''
             EXPLOSION.play()
             '''
             self.kill()
+            stage = END
+
+
             
         if self.rect.x < -25:
             self.rect.x = -25
@@ -291,6 +298,7 @@ while not done:
     # Game logic (Check for collisions, update points, etc.)
     if stage == PLAYING:
 
+        music.play()
         player.update(bombs, ship_img, hurtflash_img)
         lasers.update()   
         mobs.update(lasers)
@@ -300,7 +308,7 @@ while not done:
         
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
     
-    screen.fill(DARK_BLUE)
+    screen.blit(background, (0,0))
     lasers.draw(screen)
     player.draw(screen)
     bombs.draw(screen)
