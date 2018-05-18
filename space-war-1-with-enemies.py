@@ -34,7 +34,7 @@ laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
 mob_img = pygame.image.load('assets/images/enemy_ship-1.png')
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
 health = pygame.image.load('assets/images/health_unit.png') 
-background = pygame.image.load('assets/images/background2.jpg')
+background = pygame.image.load('assets/images/background-stars.png')
 
 # Fonts
 FONT_SM = pygame.font.Font(None, 24)
@@ -104,7 +104,6 @@ class Ship(pygame.sprite.Sprite):
             EXPLOSION.play()
             '''
             self.kill()
-            stage = END
 
 
             
@@ -292,7 +291,7 @@ while not done:
         if pressed[pygame.K_LEFT]:
             ship.move_left()
         elif pressed[pygame.K_RIGHT]:
-            ship.move_right()
+             ship.move_right()
                                 
     
     # Game logic (Check for collisions, update points, etc.)
@@ -304,6 +303,10 @@ while not done:
         mobs.update(lasers)
         bombs.update()
         fleet.update()
+        
+        if len(player) == 0:
+            stage == END
+        
 
         
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
