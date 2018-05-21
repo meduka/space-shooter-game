@@ -31,7 +31,8 @@ DARK_BLUE = (2, 0, 17)
 ship_img = pygame.image.load('assets/images/player_ship.png')
 hurtflash_img = pygame.image.load('assets/images/player_ship-1.png')
 laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
-mob_img = pygame.image.load('assets/images/enemy_ship-1.png')
+mob_img1 = pygame.image.load('assets/images/enemy_ship-1.png')
+mob_img2 = pygame.image.load('assets/images/enemy_ship-2.png')
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
 health = pygame.image.load('assets/images/health_unit.png') 
 background = pygame.image.load('assets/images/background-stars.png')
@@ -42,13 +43,13 @@ FONT_XL = pygame.font.Font("assets/fonts/space_age.ttf", 96)
 
 
 # Sounds
-'''
 EXPLOSION = pygame.mixer.Sound('assets/sounds/explosion.ogg')
-'''
-
+                                        
 hongkong97 = pygame.mixer.Sound('assets/sounds/hong_kong_97.ogg')
 stickers = pygame.mixer.Sound('assets/sounds/stickers.ogg')
-music =  pygame.mixer.Sound('assets/sounds/Bangarang_Acapella.ogg')
+music =  pygame.mixer.Sound('assets/sounds/Tung_The_Icelandic.ogg')
+
+shoot = pygame.mixer.Sound('assets/sounds/shoot.ogg')
 
 # Stages
 START = 0
@@ -79,6 +80,7 @@ class Ship(pygame.sprite.Sprite):
         laser.rect.centerx = self.rect.centerx
         laser.rect.centery = self.rect.top
         lasers.add(laser)
+        shoot.play()
 
     def update(self, bombs, image, hurt):
         hit_list = pygame.sprite.spritecollide(self, bombs, True,
@@ -100,9 +102,8 @@ class Ship(pygame.sprite.Sprite):
         if self.shield == 0:
             stickers.play()
 
-            '''
             EXPLOSION.play()
-            '''
+        
             self.kill()
 
 
@@ -151,9 +152,8 @@ class Mob(pygame.sprite.Sprite):
                                                pygame.sprite.collide_mask)
 
         if len(hit_list) > 0:
-            '''
+            
             EXPLOSION.play()
-            '''
             player.score += 1
             self.kill()
 
@@ -221,11 +221,11 @@ class Fleet:
     
 # Make game objects
 ship = Ship(384, 485, ship_img)
-mob1 = Mob(128, 0, mob_img)
-mob2 = Mob(256, 0, mob_img)
-mob3 = Mob(384, 0, mob_img)
-mob4 = Mob(512, 0, mob_img)
-mob5 = Mob(640, 0, mob_img)
+mob1 = Mob(128, 0, mob_img1)
+mob2 = Mob(256, 0, mob_img1)
+mob3 = Mob(384, 0, mob_img1)
+mob4 = Mob(512, 0, mob_img1)
+mob5 = Mob(640, 0, mob_img2)
 
 
 # Make sprite groups
@@ -297,7 +297,9 @@ while not done:
     # Game logic (Check for collisions, update points, etc.)
     if stage == PLAYING:
 
-        music.play()
+        '''
+        hongkong97.play(1)
+        '''
         player.update(bombs, ship_img, hurtflash_img)
         lasers.update()   
         mobs.update(lasers)
