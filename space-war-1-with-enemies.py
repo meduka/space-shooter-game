@@ -50,6 +50,7 @@ stickers = pygame.mixer.Sound('assets/sounds/stickers.ogg')
 music =  pygame.mixer.Sound('assets/sounds/Tung_The_Icelandic.ogg')
 
 shoot = pygame.mixer.Sound('assets/sounds/shoot.ogg')
+ouch =  pygame.mixer.Sound('assets/sounds/hit_noise.ogg')
 
 # Stages
 START = 0
@@ -89,7 +90,8 @@ class Ship(pygame.sprite.Sprite):
         for hit in hit_list:
             # play hit sound
             self.shield -= 1
-           
+            ouch.play()
+
             
         hit_list = pygame.sprite.spritecollide(self, mobs, False)
 
@@ -105,8 +107,7 @@ class Ship(pygame.sprite.Sprite):
             EXPLOSION.play()
         
             self.kill()
-
-
+            
             
         if self.rect.x < -25:
             self.rect.x = -25
