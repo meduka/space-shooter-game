@@ -34,8 +34,12 @@ laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
 mob_img1 = pygame.image.load('assets/images/enemy_ship-1.png')
 mob_img2 = pygame.image.load('assets/images/enemy_ship-2.png')
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
-health = pygame.image.load('assets/images/health_unit.png') 
 background = pygame.image.load('assets/images/background-stars.png')
+
+ 
+health_img = pygame.image.load('assets/images/health_unit.png') 
+
+
 
 # Fonts
 FONT_SM = pygame.font.Font(None, 24)
@@ -82,6 +86,10 @@ class Ship(pygame.sprite.Sprite):
         laser.rect.centery = self.rect.top
         lasers.add(laser)
         shoot.play()
+            
+    def health_bar():
+        health = Health(health_img)
+                
 
     def update(self, bombs, image, hurt):
         hit_list = pygame.sprite.spritecollide(self, bombs, True,
@@ -114,8 +122,8 @@ class Ship(pygame.sprite.Sprite):
 
         elif self.rect.x > 950:
             self.rect.x = 950
-       
             
+
 class Laser(pygame.sprite.Sprite):
     
     def __init__(self, image):
@@ -228,6 +236,11 @@ mob3 = Mob(384, 0, mob_img1)
 mob4 = Mob(512, 0, mob_img1)
 mob5 = Mob(640, 0, mob_img2)
 
+health1 = Health[0, 715, health_img]
+health2 = Health[50, 715, health_img]
+health3 = Health[100, 715, health_img]
+health4 = Health[150, 715, health_img]
+heatlh5 = Health[200, 715, health_img]
 
 # Make sprite groups
 player = pygame.sprite.GroupSingle()
