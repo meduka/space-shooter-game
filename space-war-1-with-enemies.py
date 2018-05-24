@@ -31,10 +31,14 @@ DARK_BLUE = (2, 0, 17)
 ship_img = pygame.image.load('assets/images/player_ship.png')
 hurtflash_img = pygame.image.load('assets/images/player_ship-1.png')
 laser_img = pygame.image.load('assets/images/catrunx4-2-1.png')
+
 mob_img1 = pygame.image.load('assets/images/enemy_ship-1.png')
 mob_img2 = pygame.image.load('assets/images/enemy_ship-2.png')
+
 bomb_img = pygame.image.load('assets/images/UFO-2.png')
+
 background = pygame.image.load('assets/images/background-stars.png')
+start = pygame.image.load('assets/images/start_screen_img.png')
 
  
 health_img = pygame.image.load('assets/images/health_unit.png') 
@@ -86,9 +90,6 @@ class Ship(pygame.sprite.Sprite):
         laser.rect.centery = self.rect.top
         lasers.add(laser)
         shoot.play()
-            
-    def health_bar():
-        health = Health(health_img)
                 
 
     def update(self, bombs, image, hurt):
@@ -165,8 +166,28 @@ class Mob(pygame.sprite.Sprite):
             EXPLOSION.play()
             player.score += 1
             self.kill()
+'''
+class Health(pygame.sprite.Sprite):
+    def __init__(self, x, y, image):
+        super().__init__()
+
+        self.image = image
+   
 
 
+    def update(self, ship, bomb):
+        hit_list = pygame.sprite.spritecollide(ship, bombs, True,
+                                               pygame.sprite.collide_mask)
+
+        if len(hit_list) > 5:
+            
+            EXPLOSION.play()
+            player.score += 1
+            self.kill()
+
+
+'''
+    
 class Bomb(pygame.sprite.Sprite):
     
     def __init__(self, image):
@@ -229,6 +250,14 @@ class Fleet:
 
     
 # Make game objects
+'''
+health1 = Health(0, 715, health_img)
+health2 = Health(50, 715, health_img)
+health3 = Health(100, 715, health_img)
+health4 = Health(150, 715, health_img)
+heatlh5 = Health(200, 715, health_img)
+'''
+
 ship = Ship(384, 485, ship_img)
 mob1 = Mob(128, 0, mob_img1)
 mob2 = Mob(256, 0, mob_img1)
@@ -236,11 +265,7 @@ mob3 = Mob(384, 0, mob_img1)
 mob4 = Mob(512, 0, mob_img1)
 mob5 = Mob(640, 0, mob_img2)
 
-health1 = Health[0, 715, health_img]
-health2 = Health[50, 715, health_img]
-health3 = Health[100, 715, health_img]
-health4 = Health[150, 715, health_img]
-heatlh5 = Health[200, 715, health_img]
+
 
 # Make sprite groups
 player = pygame.sprite.GroupSingle()
@@ -262,8 +287,12 @@ stage = START
 
 # Game helper functions
 def show_title_screen():
+
+    screen.blit(start, (0,0))
+
     title_text = FONT_XL.render("Space War!", 1, WHITE)
     screen.blit(title_text, [128, 204])
+
 
 def show_stats(player):
     score_text = FONT_SM.render(str(player.score), 1, WHITE)
@@ -275,9 +304,8 @@ def health_meter():
     h_y = 32
     h_x = 800
 
-    for hit in hit_list:
-        h_x += 1
-    screen.blit(health, [h_x, h_y])
+    
+    screen.blit(health_img, [h_x, h_y])
 '''
 
 # Game loop
