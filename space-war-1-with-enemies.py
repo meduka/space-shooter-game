@@ -55,15 +55,19 @@ EXPLOSION = pygame.mixer.Sound('assets/sounds/explosion.ogg')
                                         
 hongkong97 = pygame.mixer.Sound('assets/sounds/hong_kong_97.ogg')
 stickers = pygame.mixer.Sound('assets/sounds/stickers.ogg')
-music =  pygame.mixer.Sound('assets/sounds/Tung_The_Icelandic.ogg')
+music =  pygame.mixer.Sound('assets/sounds/party-stronger.ogg')
+music2 =  pygame.mixer.Sound('assets/sounds/Tung_The_Icelandic.ogg')
 
 shoot = pygame.mixer.Sound('assets/sounds/shoot.ogg')
 ouch =  pygame.mixer.Sound('assets/sounds/hit_noise.ogg')
+ 
+music2.play(-1)
 
 # Stages
 START = 0
 PLAYING = 1
 END = 2
+
 
 # Game classes
 class Ship(pygame.sprite.Sprite):
@@ -339,9 +343,8 @@ while not done:
     # Game logic (Check for collisions, update points, etc.)
     if stage == PLAYING:
 
-        '''
-        hongkong97.play(1)
-        '''
+        
+    
         player.update(bombs, ship_img, hurtflash_img)
         lasers.update()   
         mobs.update(lasers)
@@ -354,7 +357,8 @@ while not done:
 
         
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
-    
+
+
     screen.blit(background, (0,0))
     lasers.draw(screen)
     player.draw(screen)
