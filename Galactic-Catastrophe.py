@@ -47,7 +47,7 @@ health_img = pygame.image.load('assets/images/health_unit.png')
 
 
 # Fonts
-FONT_SM = pygame.font.Font(None, 24)
+FONT_SM = pygame.font.Font("assets/fonts/Gameplay.ttf", 24)
 FONT_XL = pygame.font.Font("assets/fonts/space_age.ttf", 96)
 
 
@@ -58,6 +58,7 @@ hongkong97 = pygame.mixer.Sound('assets/sounds/hong_kong_97.ogg')
 stickers = pygame.mixer.Sound('assets/sounds/stickers.ogg')
 music =  pygame.mixer.Sound('assets/sounds/party-stronger.ogg')
 music2 =  pygame.mixer.Sound('assets/sounds/Tung_The_Icelandic.ogg')
+bang =  pygame.mixer.Sound('assets/sounds/Bangarang_Acapella.ogg')
 
 shoot = pygame.mixer.Sound('assets/sounds/shoot.ogg')
 ouch =  pygame.mixer.Sound('assets/sounds/hit_noise.ogg')
@@ -437,6 +438,10 @@ while not done:
                     ship.shoot()
                 if event.key == pygame.K_p:
                     stage = END
+                    
+                if ship.shield == 0:
+                    stage = END
+                    
             elif stage == END:
                 if event.key == pygame.K_p:
                     stage = PLAYING
@@ -450,7 +455,12 @@ while not done:
         elif pressed[pygame.K_RIGHT]:
              ship.move_right()
                                 
-    
+        if pressed[pygame.K_x]:
+            exit()
+
+    if stage == END:
+        if pressed[pygame.K_x]:
+            exit()
     # Game logic (Check for collisions, update points, etc.)
     if stage == PLAYING:
 
