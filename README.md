@@ -11,3 +11,7 @@ Move using the left and right arrow keys
 
 
 Pause/Unpause using the P key
+
+## Instructions
+
+Kill all the enemies coming towards you while dodging their blasters
