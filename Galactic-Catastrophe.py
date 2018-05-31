@@ -342,19 +342,36 @@ heatlh5 = Health(200, 715, health_img)
 '''
 
 ship = Ship(384, 485, ship_img)
-mob6 = Mob(128, 200, mob_img1)
-mob7 = Mob(256, 200, mob_img1)
+
+mob1 = Mob(400, 175, mob_img1)
+mob2 = Mob(600, 175, mob_img1)
+mob3 = Mob(200, 175, mob_img1)
+
+mob4 = Mob(100, 0, mob_img1)
+mob5 = Mob(300, 0, mob_img1)
+mob6 = Mob(500, 0, mob_img1)
+mob7 = Mob(700, 0, mob_img1)
 
 
-mob1 = Mob(128, 0, mob_img1)
-mob2 = Mob(256, 0, mob_img1)
-mob3 = Mob(384, 0, mob_img1)
-mob4 = Mob(512, 0, mob_img1)
+mob8 = Mob2(200, -175, mob_img2)
+mob9 = Mob2(400, -175, mob_img2)
+mob10 = Mob2(600, -175, mob_img2)
+
+mob11 = Mob2(200, -350, mob_img2)
+mob12 = Mob2(400, -350, mob_img2)
+mob13 = Mob2(600, -350, mob_img2)
+
+mob14 = Mob2(100, -525, mob_img2)
+mob15 = Mob2(300, -525, mob_img2)
+mob16 = Mob2(500, -525, mob_img2)
+mob17 = Mob2(700, -525, mob_img2)
 
 
-mob5 = Mob2(600, 0, mob_img2)
 
-mob8 = Mob2(500, 0, mob_img3)
+
+mob18 = Mob3(200, -800, mob_img3)
+mob19 = Mob3(400, -800, mob_img3)
+
 
 
 # Make sprite groups
@@ -366,7 +383,8 @@ player.score = 0
 lasers = pygame.sprite.Group()
 
 mobs = pygame.sprite.Group()
-mobs.add(mob1, mob2, mob3, mob4, mob5, mob6, mob7, mob8)
+mobs.add(mob1, mob2, mob3, mob4, mob5, mob6, mob7, mob8, mob9, mob10,
+         mob11, mob12, mob13, mob14, mob15, mob16, mob17, mob18, mob19)
 
 bombs = pygame.sprite.Group()
                     
