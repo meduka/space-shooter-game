@@ -28,7 +28,13 @@ Equipped with your weaponized cats, kill all the enemies coming towards. You hav
 
 
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-1.png "easy peasy")
+
 These are the first enemies you will encounter. Each take only one hit to kill, and you will gain one point for each you knock out.
 
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-2.png "goldilocks")
+
+Slightly more difficult than the first, these enemies take three hits to kill. For your efforts, you will recieve 10 points for each that you kill.
+
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/last_enemy.png "big boyes")
+
+The boss enemies. They take a whopping 10 shots to take out completely. Your score will increase by a 100 points each.
