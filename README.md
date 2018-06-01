@@ -47,3 +47,13 @@ Slightly more difficult than the first, these enemies take three hits to kill. F
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/last_enemy.png "big boyes")
 
 The boss enemies. They take a whopping 10 shots to take out completely. Your score will increase by a 100 points each.
+
+
+
+## Gameplay
+
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot2.PNG "big boyes")
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot3.PNG "big boyes")
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot4.PNG "big boyes")
+
+
