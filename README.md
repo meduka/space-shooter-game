@@ -25,5 +25,5 @@ Kill all the enemies coming towards you while dodging their blasters
 
 
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-1.png "Catastrophe!")
-![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-2.png"Catastrophe!")
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-2.png "Catastrophe!")
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/last_enemy.png "Catastrophe!")
