@@ -1,8 +1,8 @@
 # Welcome to Galactic Catastrophe!
 
-The first section of your should give a brief description of your game. (Perhaps ## About would be a good heading). You'll get 6/10 for a very basic description and an 8/10 or 10/10 if you include details, perhaps a backstory, etc. 
-
 Space travel is a dangerous endeavor, my friend. In the thick of a sector infamous for space pirates, your cargo ship is attacked by the most powerful of pirate group of them all, the Outsiders! They seek to steal your store of genetically modified Attack Cats for their own use, and you must protect both yourself and your rare freight. Can you succeed?
+
+
 
 ## Controls:
 
