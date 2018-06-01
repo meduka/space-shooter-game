@@ -5,6 +5,7 @@ Space travel is a dangerous endeavor, my friend. In the thick of a sector infamo
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot1.PNG "Catastrophe!")
 
 
+[DOWNLOAD](https://github.com/meduka/space-shooter-game/releases/tag/v0.8.0)
 
 
 ## Instructions
@@ -56,5 +57,3 @@ The boss enemies. They take a whopping 10 shots to take out completely. Your sco
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot3.PNG "gameplay")
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot4.PNG "gameplay")
 
-
-[DOWNLOAD](https://github.com/meduka/space-shooter-game/releases/tag/v0.8.0)
