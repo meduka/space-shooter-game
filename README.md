@@ -52,8 +52,8 @@ The boss enemies. They take a whopping 10 shots to take out completely. Your sco
 
 ## Gameplay
 
-![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot2.PNG "big boyes")
-![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot3.PNG "big boyes")
-![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot4.PNG "big boyes")
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot2.PNG "gameplay")
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot3.PNG "gameplay")
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot4.PNG "gameplay")
 
 
