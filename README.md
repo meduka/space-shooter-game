@@ -2,6 +2,8 @@
 
 Space travel is a dangerous endeavor, my friend. In the thick of a sector infamous for space pirates, your cargo ship is attacked by the most powerful of pirate group of them all, the Outsiders! They seek to steal your store of genetically modified Attack Cats for their own use, and you must protect both yourself and your rare freight. Can you succeed?
 
+![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/screenshots/screenshot1.PNG "Catastrophe!")
+
 
 
 ## Controls:
