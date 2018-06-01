@@ -26,7 +26,7 @@ Equipped with your weaponized cats, kill all the enemies coming towards. You hav
 
 6) Create another section of your game which gives detailed instructions about how to play. Instructions should include how to run the game, all controls, and scoring. Also discuss stages and game ending as appropriate. For describing basic controls only, you'll get an 6/10. You can get either a 8/10 or 10/10 if your instructions also clearly describe all features such as number of hits to kill different enemies, scoring, how difficulty increases, what power-ups do, etc. Use multiple paragraphs if it helps with organization and clarity.
 
-Poison Apple Cruiser:
+### Poison Apple Cruiser:
 
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-1.png "easy peasy")
 
@@ -34,14 +34,15 @@ These are the first enemies you will encounter. Each take only one hit to kill, 
 
 
 
-Grape of Wrath: 
+### Grape of Wrath Fighter: 
 
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/enemy_ship-2.png "goldilocks")
 
 Slightly more difficult than the first, these enemies take three hits to kill. For your efforts, you will recieve 10 points for each that you kill.
 
 
-Lettuce All Pillage:
+
+### Lettuce All Pillage Destroyer:
 
 ![alt text](https://raw.githubusercontent.com/meduka/space-shooter-game/master/assets/images/last_enemy.png "big boyes")
 
