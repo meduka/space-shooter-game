@@ -24,7 +24,7 @@ Press X to close out your game session.
 
 Equipped with your weaponized cats, kill all the enemies coming towards. You have 5 health units in total that go down when you are hit, so you must dodge their blasters to stay alive. If you come in contact with an enemy ship directly, you will die immediately.
 
-/
+\
 
 
 ### Poison Apple Cruiser:
